@@ -1,5 +1,7 @@
 # Student Budget Planner
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://p-sharma-7-budget-planner-for-student-budget-planner-yrzvr0.streamlit.app/)
+
 A Streamlit web app to help students plan, track, and analyze their monthly finances. Easily add manual entries or upload your bank account statement in Excel format for automatic categorization and insightful analysis.
 
 ## Features
