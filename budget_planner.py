@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # -----------------------------
 st.set_page_config(page_title="Student Budget Planner", layout="wide")
 
-st.title("📊 Student Budget Planner")
+st.title("Student Budget Planner")
 st.write("Plan, track, and manage your monthly allowance efficiently!")
 
 # -----------------------------
@@ -19,7 +19,7 @@ if "data" not in st.session_state:
 # -----------------------------
 # Input Section
 # -----------------------------
-st.header("➕ Add Income / Expense")
+st.header("Add Income / Expense")
 
 col1, col2, col3 = st.columns(3)
 
@@ -41,7 +41,7 @@ if st.button("Add Entry"):
 # -----------------------------
 # Budget Summary
 # -----------------------------
-st.header("📌 Monthly Summary")
+st.header("Monthly Summary")
 
 if not st.session_state.data.empty:
     income = st.session_state.data[st.session_state.data["Type"] == "Income"]["Amount"].sum()
@@ -58,7 +58,7 @@ if not st.session_state.data.empty:
     # -----------------------------
     # Category Analysis
     # -----------------------------
-    st.subheader("📊 Category-wise Analysis")
+    st.subheader("Category-wise Analysis")
     expense_data = st.session_state.data[st.session_state.data["Type"] == "Expense"]
 
     if not expense_data.empty:
@@ -71,18 +71,18 @@ if not st.session_state.data.empty:
     # -----------------------------
     # Financial Goal
     # -----------------------------
-    st.subheader("🎯 Financial Goal")
+    st.subheader("Financial Goal")
     goal = st.number_input("Set a savings goal (₹)", min_value=0, step=500)
     if goal > 0:
         if savings >= goal:
-            st.success(f"🎉 Congratulations! You reached your savings goal of ₹{goal}.")
+            st.success(f"Congratulations! You reached your savings goal of ₹{goal}.")
         else:
-            st.warning(f"💡 You need ₹{goal - savings} more to reach your goal.")
+            st.warning(f"You need ₹{goal - savings} more to reach your goal.")
 
     # -----------------------------
     # Export Report
     # -----------------------------
-    st.subheader("📤 Export Monthly Report")
+    st.subheader("Export Monthly Report")
     csv = st.session_state.data.to_csv(index=False).encode("utf-8")
     st.download_button("Download Report (CSV)", data=csv, file_name="monthly_budget.csv", mime="text/csv")
 
